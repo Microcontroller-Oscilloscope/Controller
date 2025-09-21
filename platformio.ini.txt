@@ -1,0 +1,51 @@
+;	platormio.ini - configuration for specified platform
+;	Copyright (C) 2025 Camren Chraplak
+;
+;	This program is free software: you can redistribute it and/or modify
+;	it under the terms of the GNU General Public License as published by
+;	the Free Software Foundation, either version 3 of the License, or
+;	(at your option) any later version.
+;
+;	This program is distributed in the hope that it will be useful,
+;	but WITHOUT ANY WARRANTY; without even the implied warranty of
+;	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;	GNU General Public License for more details.
+;
+;	You should have received a copy of the GNU General Public License
+;	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+; PlatformIO Project Configuration File
+;
+;   Build options: build flags, source filter
+;   Upload options: custom upload port, speed and extra flags
+;   Library options: dependencies, extra library storages
+;   Advanced options: extra scripting
+;
+; Please visit documentation for the other options and examples
+; https://docs.platformio.org/page/projectconf.html
+
+[platformio]
+default_envs = release
+
+; Environment Select
+extra_configs = 
+	ini/generic.ini
+	ini/pico.ini ; TODO: Replace with your board under the 'ini' folder or 'custom.ini' for unsupported board
+
+; Environment for regular operation
+[env:release]
+extends = env, base, release_env ; release environment
+
+build_flags =
+	${env.build_flags}
+	${release_env.build_flags}
+	${base.build_flags}
+
+; Environment for testing published functionality
+[env:test]
+extends = env, base, test_env ; test environment
+
+build_flags =
+	${env.build_flags}
+	${test_env.build_flags}
+	${base.build_flags}

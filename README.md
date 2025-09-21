@@ -1,1 +1,3 @@
 # Controller
+
+This repository contains the code necessary to run all boards for the microcontroller oscilloscope. This repository requires the [Core](https://github.com/Microcontroller-Oscilloscope/Core) to function and [Unity Tests](https://github.com/Microcontroller-Oscilloscope/UnityTests) to verify its functionality. Look [here](https://github.com/Microcontroller-Oscilloscope/Core/wiki/MC_Support) for supported microcontrollers.
