@@ -137,8 +137,11 @@ def copyCPPFiles():
 	# links 'linker_sources' based on standalone or PlatformIO usage
 	if mainRun:
 		import linker_sources as lnk
+		
 	else:
 		import py_scripts.linker_sources as lnk
+		print("\nRunning 'cpp_linker.py'")
+		lnk.debug = False
 
 	# sets debug status
 	try:
