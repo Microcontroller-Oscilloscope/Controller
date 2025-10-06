@@ -16,7 +16,9 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+#include <Arduino.h>
 #include <full_test.h>
+#include <board_common.h>
 
 void setUp(void) {
 	// set stuff up here
@@ -33,7 +35,7 @@ int runUnityTests(void) {
 }
 
 void setup() {
-	delay(SERIAL_DELAY);
+	hardDelayMS(SERIAL_DELAY);
 	runUnityTests();
 }
 

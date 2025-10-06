@@ -16,7 +16,9 @@
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "main.h"
+#include <entry.h>
+#include <runner.h>
+#include <Arduino.h>
 
 void setup() {
 	startProgram();
