@@ -64,8 +64,6 @@ def copyProp(newDir: str) -> None:
 		controllerPath: str = folder + "/" + fileName
 		sourcePath: str = dir + fileName
 		printDebug("\tfilename: " + fileName)
-		printDebug("\t\tController Path: " + controllerPath)
-		printDebug("\t\tSource Path: " + sourcePath)
 
 		# configures files
 		if os.path.exists(sourcePath):
@@ -73,6 +71,12 @@ def copyProp(newDir: str) -> None:
 				os.remove(sourcePath)
 			except (NotADirectoryError, FileNotFoundError):
 				printError("'" + sourcePath + "' isn't a directory")
+		else:
+			printDebug("\t\t*** Creating New Directory: " + dir + " ***")
+			os.mkdir(dir)
+
+		printDebug("\t\tController Path: " + controllerPath)
+		printDebug("\t\tSource Path: " + sourcePath)
 
 		try:
 			newFile = open(sourcePath, "w")
@@ -171,6 +175,14 @@ def copyCPPFiles():
 		copyProp(lnk.testDir)
 	except (NameError, AttributeError):
 		printError("testDir not found", False)
+	
+	# tries to modify lib directory
+	try:
+		lnk.libDir
+		for dir in lnk.libDir:
+			copyProp(dir)
+	except (NameError, AttributeError):
+		printError("libDir not found", False)
 	
 	print("")
 
