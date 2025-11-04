@@ -18,7 +18,7 @@
 
 #include <Arduino.h>
 #include <full_test.h>
-#include <board_common.h>
+#include <osc_common/common_thread.h>
 
 void setUp(void) {
 	// set stuff up here
