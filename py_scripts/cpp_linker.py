@@ -180,7 +180,11 @@ def copyCPPFiles():
 	try:
 		lnk.libDir
 		for dir in lnk.libDir:
-			copyProp(dir)
+			try:
+				copyProp(dir)
+			except FileNotFoundError:
+				printError("directory '" + dir + "' not found", False)
+
 	except (NameError, AttributeError):
 		printError("libDir not found", False)
 	
