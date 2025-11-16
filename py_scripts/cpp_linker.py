@@ -71,7 +71,7 @@ def copyProp(newDir: str) -> None:
 				os.remove(sourcePath)
 			except (NotADirectoryError, FileNotFoundError):
 				printError("'" + sourcePath + "' isn't a directory")
-		else:
+		elif not os.path.exists(dir):
 			printDebug("\t\t*** Creating New Directory: " + dir + " ***")
 			os.mkdir(dir)
 
